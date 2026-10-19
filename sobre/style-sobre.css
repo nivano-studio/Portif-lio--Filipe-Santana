@@ -43,6 +43,24 @@ body {
   color: white;
 }
 
+body.video-fallback {
+  background-image:
+    radial-gradient(ellipse at 15% 20%, rgba(105, 31, 163, 0.42), transparent 48%),
+    radial-gradient(ellipse at 85% 65%, rgba(42, 47, 130, 0.38), transparent 46%),
+    radial-gradient(ellipse at 45% 110%, rgba(107, 22, 94, 0.3), transparent 48%);
+  background-size: 160% 160%;
+  animation: purple-background-drift 18s ease-in-out infinite alternate;
+}
+
+body.video-fallback .bg-video {
+  display: none;
+}
+
+@keyframes purple-background-drift {
+  from { background-position: 0% 0%; }
+  to { background-position: 100% 100%; }
+}
+
 .autor {
   font-family: "ClashDisplay", sans-serif;
   font-size: 30px;

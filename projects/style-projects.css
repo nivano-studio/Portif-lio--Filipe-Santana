@@ -43,6 +43,24 @@ body {
   color: white;
 }
 
+body.video-fallback {
+  background-image:
+    radial-gradient(ellipse at 15% 20%, rgba(105, 31, 163, 0.42), transparent 48%),
+    radial-gradient(ellipse at 85% 65%, rgba(42, 47, 130, 0.38), transparent 46%),
+    radial-gradient(ellipse at 45% 110%, rgba(107, 22, 93, 0.3), transparent 48%);
+  background-size: 160% 160%;
+  animation: purple-background-drift 18s ease-in-out infinite alternate;
+}
+
+body.video-fallback .bg-video {
+  display: none;
+}
+
+@keyframes purple-background-drift {
+  from { background-position: 0% 0%; }
+  to { background-position: 100% 100%; }
+}
+
 .autor {
   font-family: "ClashDisplay", sans-serif;
   font-size: 30px;
@@ -326,4 +344,82 @@ li:after {
   margin: 10px;
   font-family: "ClashDisplay-Regular", sans-serif;
   font-size: 13px;
+}
+
+@media (max-width: 1100px) {
+  .fileira1,
+  .fileira2,
+  .fileira3 {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .card-project {
+    width: min(380px, calc(50% - 20px));
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    justify-content: flex-start;
+    width: 100%;
+    padding: 12px;
+    overflow-x: hidden;
+  }
+
+  .card-projects {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  .description {
+    width: 100%;
+    margin: 10px auto;
+    font-size: 15px;
+  }
+
+  .fileira1,
+  .fileira2,
+  .fileira3 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-project {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    min-height: 280px;
+    margin: 8px 0;
+    padding: 20px;
+  }
+
+  .img-project {
+    width: 100%;
+    max-width: 300px;
+    height: 180px;
+  }
+
+  .h2-project {
+    font-size: 19px;
+  }
+
+  .voltar {
+    margin: 0 auto;
+  }
+
+  li {
+    width: min(200px, calc(100vw - 48px));
+  }
+
+  .card-logos {
+    max-width: 100%;
+    margin: 4px auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.video-fallback {
+    animation: none;
+  }
 }

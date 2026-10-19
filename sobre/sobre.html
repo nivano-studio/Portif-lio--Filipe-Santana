@@ -9,9 +9,15 @@
   </head>
   <body>
     <!-- @ Video fundo -->
-    <video class="bg-video" autoplay loop muted playsinline>
+    <video class="bg-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
       <source src="../asset/purple-swirls.webm" type="video/webm" />
     </video>
+    <script>
+      const backgroundVideo = document.querySelector(".bg-video");
+      const useAnimatedBackground = () => document.body.classList.add("video-fallback");
+      backgroundVideo?.addEventListener("error", useAnimatedBackground, { once: true });
+      backgroundVideo?.play().catch(useAnimatedBackground);
+    </script>
     <div class="card-sobre">
           <img src="../asset/perfil.jpg" alt="Foto de perfil de Filipe Santana" class="perfil" />
       <h1 class="autor">Sobre Mim:</h1>
